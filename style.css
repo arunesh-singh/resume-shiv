@@ -1,13 +1,132 @@
 :root {
-  --primary: #facc14;
+  --primary: #f2cc0d; /* Updated Yellow */
   --charcoal: #121212;
   --soft-white: #FAFAFA;
   --text-main: #FAFAFA;
   --text-dark: #121212;
-  --text-dim: #9ca3af; /* gray-400 */
+  --text-dim: #9ca3af;
   --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   --font-display: 'Space Grotesk', sans-serif;
   --font-serif: 'Playfair Display', serif;
+}
+
+/* ... (keep existing styling until Expertise section) ... */
+
+/* ================= EXPERTISE & RECOGNITION ================= */
+.expertise-section {
+  background-color: #FAFAFA;
+  background-image: radial-gradient(#f2cc0d22 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding: 6rem 2rem;
+  overflow: hidden;
+}
+
+.expertise-section::before {
+  display: none; /* Remove old pattern */
+}
+
+/* BENTO GRID */
+.expert-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .expert-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .expert-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.bento-card {
+  border-radius: 0.75rem; /* xl */
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(242, 204, 13, 0.3);
+  z-index: 10;
+}
+
+/* Card Colors */
+.bg-white { background-color: #ffffff; border: 1px solid rgba(18,18,18,0.05); }
+.bg-primary { background-color: var(--primary); color: var(--charcoal); }
+.bg-charcoal { background-color: var(--charcoal); color: #ffffff; }
+
+/* Grid Spans */
+.col-span-2 { grid-column: span 2; }
+.row-span-2 { grid-row: span 2; }
+.row-span-1 { grid-row: span 1; }
+.col-span-1 { grid-column: span 1; }
+
+@media (max-width: 767px) {
+  .col-span-2, .col-span-1 { grid-column: span 1 !important; }
+  .row-span-2, .row-span-1 { grid-row: auto !important; }
+}
+
+/* Utilities */
+.text-primary { color: var(--primary); }
+.text-charcoal { color: var(--charcoal); }
+.opacity-60 { opacity: 0.6; }
+.opacity-70 { opacity: 0.7; }
+
+/* RADIAL PROGRESS SVG */
+.radial-ring-container {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 1.5rem;
+}
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+/* Header Styles */
+.expertise-header-new {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .expertise-header-new {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.pill-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--charcoal);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    width: fit-content;
+    margin-bottom: 1rem;
 }
 
 * {
@@ -395,143 +514,24 @@ body.dark-mode {
   letter-spacing: 0.05em;
 }
 
-/* ================= EXPERTISE & RECOGNITION ================= */
-.expertise-section {
-  background-color: #FAFAFA;
-  padding: 8rem 6rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.expertise-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-}
-
-.expertise-container {
-  position: relative;
-  z-index: 5;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.btn-dark {
-  background-color: var(--charcoal);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform 0.2s;
-}
-.btn-dark:hover { transform: translateY(-2px); }
-
-/* BENTO GRID */
-.expert-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 240px; /* Slightly taller for visual balance */
-  gap: 1.5rem;
-}
-
+/* ================= EXPERTISE & RECOGNITION (Custom Animations) ================= */
+/* Custom CSS for Bento Grid & Animations */
 .bento-card {
-  border-radius: 1rem;
-  padding: 1.5rem;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, box-shadow;
 }
-
 .bento-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
 }
-
-/* Card Variants */
-.card-light {
-  background-color: #fff;
-  border: 1px solid #e5e7eb;
+/* Progress Ring Animation */
+.progress-ring-circle {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 1.5s ease-in-out;
 }
-
-.card-dark {
-  background-color: var(--charcoal);
-  color: #fff;
-}
-
-.card-yellow {
-  background-color: var(--primary);
-  color: var(--charcoal);
-}
-
-/* Utilities within cards */
-.card-head {
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.2;
-}
-
-.chip {
-  background-color: #f3f4f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #6b7280;
-  border: 1px solid #e5e7eb;
-}
-
-.flex-center {
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-row-center {
-  flex-direction: row;
-  align-items: center;
-}
-
-.icon-box-yellow {
-  width: 3.5rem;
-  height: 3.5rem;
-  background-color: var(--primary);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-/* RADIAL PROGRESS */
-.radial-progress {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: conic-gradient(#fff var(--progress), rgba(255,255,255,0.3) 0deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.radial-progress::before {
-  content: '';
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background-color: var(--primary);
-  border-radius: 50%;
-}
-.radial-progress span {
-  position: relative;
-  z-index: 10;
+.radial-ring-container:hover .progress-ring-circle {
+    stroke-dashoffset: 0 !important; /* Demo hover effect */
 }
 
 /* ================= MOBILE ================= */
@@ -593,15 +593,178 @@ body.dark-mode {
   }
   .exp-panel.end-panel { height: 100px; }
 
-  /* Expertise Grid Mobile */
-  .expertise-section { padding: 4rem 1.5rem; }
-  .expert-grid {
+
+}
+
+/* ================= RESEARCH SECTION ================= */
+.research-section {
+  background-color: var(--charcoal);
+  padding: 8rem 2rem;
+  color: var(--soft-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.research-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.research-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+}
+
+.research-item:last-child {
+  border-bottom: none;
+}
+
+.research-item:hover {
+  transform: translateX(10px);
+}
+
+.year-label {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--primary);
+  opacity: 0.8;
+  padding-top: 0.5rem;
+}
+
+.research-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.research-desc {
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.btn-text {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s;
+}
+
+.btn-text:hover {
+  opacity: 0.8;
+}
+
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+  background-color: var(--soft-white);
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.contact-wrapper {
+  max-width: 800px;
+  width: 100%;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--charcoal);
+  margin-bottom: 2rem;
+}
+
+.contact-text {
+  font-size: 1.25rem;
+  color: #4b5563;
+  margin-bottom: 4rem;
+}
+
+.email-link {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-bottom: 2px solid var(--primary);
+  transition: color 0.3s, border-color 0.3s;
+  display: inline-block;
+  margin-bottom: 4rem;
+}
+
+.email-link:hover {
+  color: var(--primary);
+  border-color: var(--charcoal);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.social-icon {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.social-icon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--charcoal);
+  transition: width 0.3s;
+}
+
+.social-icon:hover::after {
+  width: 100%;
+}
+
+.site-footer {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 2rem;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .research-item {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+    gap: 0.5rem;
   }
-  .bento-card {
-    grid-column: span 1 !important;
-    grid-row: auto !important;
-    min-height: 180px;
+  .research-title {
+    font-size: 1.5rem;
   }
 }

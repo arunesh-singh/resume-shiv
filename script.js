@@ -117,6 +117,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ================= RESEARCH & CONTACT ANIMATIONS =================
+    const researchSection = document.querySelector('.research-section');
+    if (researchSection) {
+        // Staggered list items
+        gsap.from(".research-item", {
+            scrollTrigger: {
+                trigger: ".research-list",
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            },
+            x: -50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        // Section Title
+        gsap.from(".research-section .section-title", {
+            scrollTrigger: {
+                trigger: ".research-section",
+                start: "top 80%"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+    }
+
+    const contactSection = document.querySelector('.contact-section');
+    if (contactSection) {
+        gsap.from(".contact-wrapper > *", {
+            scrollTrigger: {
+                trigger: ".contact-section",
+                start: "top 75%"
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.out"
+        });
+    }
+
     // ================= SMOOTH SCROLL TO ANCHORS =================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {

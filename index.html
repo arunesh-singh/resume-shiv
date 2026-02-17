@@ -16,6 +16,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#f2cc0d",
+                "charcoal": "#121212",
+                "background-light": "#FAFAFA",
+                "background-dark": "#221f10",
+              },
+              fontFamily: {
+                "display": ["Space Grotesk", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
 </head>
 
 <body>
@@ -33,7 +53,7 @@
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <div>
-            <a href="#" class="btn-download">DOWNLOAD CV</a>
+            <a href="Shivam_Singh_Patel_BioVaram.pdf" class="btn-download" download>DOWNLOAD CV</a>
         </div>
     </nav>
 
@@ -89,7 +109,7 @@
             <div class="profile-wrapper">
                 <!-- Asymmetric Masked Image -->
                 <div class="mask-asymmetric gsap-reveal-img">
-                    <img src="profile.png" alt="Shivam Singh Patel" class="profile-img">
+                    <img src="image.png" alt="Shivam Singh Patel" class="profile-img">
                     <div class="mask-overlay"></div>
                 </div>
 
@@ -217,116 +237,212 @@
     </section>
 
     <!-- ================= EXPERTISE & RECOGNITION ================= -->
-    <section id="expertise" class="expertise-section">
-        <div class="expertise-container">
-            <div class="expertise-header">
-                <span class="tag mb-4 inline-block">NANOSCIENCE PORTFOLIO</span>
-                <h2 class="section-title text-charcoal mb-4">Expertise & <span class="text-primary">Recognition</span></h2>
-                <p class="text-gray-600" style="max-width: 600px; font-size: 1.1rem; line-height: 1.6;">
-                    Bridging the gap between theoretical quantum mechanics and practical nano-fabrication through precision and innovation.
-                </p>
-                <!-- Download CV button for this section if needed, or just keep top right -->
-                <a href="#" class="btn-dark mt-6 inline-block">
-                    <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.2rem;">download</span>
-                    Download CV
-                </a>
-            </div>
+    <section id="expertise" class="bg-background-light min-h-screen relative">
+        <div class="max-w-[1200px] mx-auto px-6 pt-32 pb-12 relative z-10">
+            <!-- Header Section -->
+            <header class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-2 mb-4 text-primary bg-charcoal w-fit px-3 py-1 rounded-full">
+                        <span class="material-symbols-outlined text-sm">science</span>
+                        <span class="text-xs font-bold uppercase tracking-widest">Nanoscience Portfolio</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-charcoal mb-4">
+                        Expertise & <span class="text-primary">Recognition</span>
+                    </h1>
+                    <p class="text-lg text-charcoal/70 max-w-lg leading-relaxed">
+                        Bridging the gap between theoretical quantum mechanics and practical nano-fabrication through precision and innovation.
+                    </p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="Shivam_Singh_Patel_BioVaram.pdf" download class="px-6 py-3 bg-charcoal text-white rounded-xl font-bold hover:bg-charcoal/90 transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-xl">description</span>
+                        Download CV
+                    </a>
+                </div>
+            </header>
 
-            <div class="expert-grid">
-                
-                <!-- 1. Core Research Focus (White) -->
-                <div class="bento-card card-light" style="grid-column: span 1; grid-row: span 2;">
-                    <span class="material-symbols-outlined text-primary mb-4" style="font-size: 2rem;">biotech</span>
-                    <h3 class="card-head mb-2">Core Research Focus</h3>
-                    <p class="text-sm text-gray-500 mb-6">Specializing in the development of next-generation semiconductor materials using advanced lithography and molecular modeling.</p>
-                    <div class="flex gap-2 flex-wrap">
-                        <span class="chip">#Semiconductors</span>
-                        <span class="chip">#QuantumTheory</span>
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 auto-rows-[180px]">
+                <!-- Bio Card (Large) -->
+                <div class="md:col-span-2 md:row-span-2 bento-card bg-white border border-charcoal/5 p-8 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4">biotech</span>
+                        <h3 class="text-2xl font-bold mb-3">Core Research Focus</h3>
+                        <p class="text-charcoal/60 leading-relaxed">
+                            Specializing in the development of next-generation semiconductor materials using advanced lithography and molecular modeling. Driven by the potential of zero-emission nano-electronics.
+                        </p>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mt-4">
+                        <span class="px-3 py-1 bg-background-light border border-charcoal/10 rounded-full text-xs font-medium">#Semiconductors</span>
+                        <span class="px-3 py-1 bg-background-light border border-charcoal/10 rounded-full text-xs font-medium">#QuantumTheory</span>
                     </div>
                 </div>
 
-                <!-- 2. Nano-fabrication (Yellow) -->
-                <div class="bento-card card-yellow flex-center text-center" style="grid-column: span 1; grid-row: span 2;">
-                    <div class="radial-progress" style="--progress: 95%;">
-                        <span class="text-2xl font-bold">95%</span>
+                <!-- Core Skill: Nano-fabrication (Yellow) -->
+                <div class="md:col-span-2 md:row-span-2 bento-card bg-primary p-8 rounded-xl flex flex-col items-center justify-center text-center">
+                    <div class="relative size-32 mb-6">
+                        <svg class="size-full">
+                            <circle cx="64" cy="64" fill="transparent" r="58" stroke="white" stroke-opacity="0.3" stroke-width="8"></circle>
+                            <circle class="progress-ring-circle" cx="64" cy="64" fill="transparent" r="58" stroke="white" stroke-dasharray="364.4" stroke-dashoffset="18.2" stroke-width="8"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-2xl font-bold">95%</span>
+                        </div>
                     </div>
-                    <h3 class="card-head mt-6 mb-1">Nano-fabrication</h3>
-                    <p class="text-xs uppercase tracking-widest opacity-80">Lithography, Etching, & Deposition</p>
+                    <h3 class="text-xl font-bold mb-1">Nano-fabrication</h3>
+                    <p class="text-charcoal/70 text-sm">Lithography, Etching, & Deposition</p>
                 </div>
 
-                <!-- 3. Dean's List (Dark) -->
-                <div class="bento-card card-dark flex-row-center" style="grid-column: span 2;">
-                    <div class="icon-box-yellow mr-4">
-                        <span class="material-symbols-outlined text-charcoal">military_tech</span>
+                <!-- Awards: Dean's List (Charcoal) -->
+                <div class="md:col-span-2 md:row-span-1 bento-card bg-charcoal p-6 rounded-xl flex items-center gap-5 text-white">
+                    <div class="size-14 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold text-lg">Dean’s List 2023</h3>
-                        <p class="text-gray-400 text-sm">Academic Excellence Award</p>
+                        <h4 class="font-bold text-lg">Dean's List 2023</h4>
+                        <p class="text-white/50 text-sm">Academic Excellence Award</p>
                     </div>
                 </div>
 
-                <!-- 4. Python (Small White) -->
-                <div class="bento-card card-light flex-center text-center">
+                <!-- Skills List (Small) -->
+                <div class="md:col-span-1 md:row-span-1 bento-card bg-white border border-charcoal/5 p-6 rounded-xl flex flex-col justify-center items-center text-center">
                     <span class="material-symbols-outlined text-charcoal mb-2">code</span>
-                    <h4 class="font-bold text-sm">Python SciPy</h4>
+                    <span class="font-bold text-sm">Python SciPy</span>
+                </div>
+                <div class="md:col-span-1 md:row-span-1 bento-card bg-white border border-charcoal/5 p-6 rounded-xl flex flex-col justify-center items-center text-center">
+                    <span class="material-symbols-outlined text-charcoal mb-2">monitoring</span>
+                    <span class="font-bold text-sm">Data Analysis</span>
                 </div>
 
-                <!-- 5. Data Analysis (Small White) -->
-                <div class="bento-card card-light flex-center text-center">
-                    <span class="material-symbols-outlined text-charcoal mb-2">bar_chart</span>
-                    <h4 class="font-bold text-sm">Data Analysis</h4>
-                </div>
-
-                <!-- 6. Microscopy (Yellow) -->
-                <div class="bento-card card-yellow flex-center text-center" style="grid-column: span 1; grid-row: span 2;">
-                    <div class="radial-progress" style="--progress: 90%;">
-                        <span class="text-2xl font-bold">90%</span>
+                <!-- Core Skill: Electron Microscopy (Yellow) -->
+                <div class="md:col-span-2 md:row-span-2 bento-card bg-primary p-8 rounded-xl flex flex-col items-center justify-center text-center">
+                    <div class="relative size-32 mb-6">
+                        <svg class="size-full">
+                            <circle cx="64" cy="64" fill="transparent" r="58" stroke="white" stroke-opacity="0.3" stroke-width="8"></circle>
+                            <circle class="progress-ring-circle" cx="64" cy="64" fill="transparent" r="58" stroke="white" stroke-dasharray="364.4" stroke-dashoffset="36.4" stroke-width="8"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-2xl font-bold">90%</span>
+                        </div>
                     </div>
-                    <h3 class="card-head mt-6 mb-1">Microscopy</h3>
-                    <p class="text-xs uppercase tracking-widest opacity-80">High-res SEM / TEM Imaging</p>
+                    <h3 class="text-xl font-bold mb-1">Microscopy</h3>
+                    <p class="text-charcoal/70 text-sm">High-res SEM / TEM Imaging</p>
                 </div>
 
-                <!-- 7. Cleanroom Operator (Dark) -->
-                <div class="bento-card card-dark flex-row-center" style="grid-column: span 2;">
-                     <div class="icon-box-yellow mr-4">
-                        <span class="material-symbols-outlined text-charcoal">verified_user</span>
+                <!-- Award: Certificate (Charcoal) -->
+                <div class="md:col-span-2 md:row-span-1 bento-card bg-charcoal p-6 rounded-xl flex items-center gap-5 text-white">
+                    <div class="size-14 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
                     </div>
-                     <div>
-                        <h3 class="text-white font-bold text-lg">Cleanroom Operator</h3>
-                        <p class="text-gray-400 text-sm">ISO Class 5 Certification</p>
-                    </div>
-                </div>
-
-                <!-- 8. Quantum Mech (Yellow Wide) -->
-                <div class="bento-card card-yellow flex justify-between items-center" style="grid-column: span 2;">
                     <div>
-                        <h3 class="card-head mb-1">Quantum Mech</h3>
-                        <p class="text-xs uppercase tracking-widest opacity-80">Theory & Simulation</p>
-                    </div>
-                    <span class="text-4xl font-serif italic opacity-80">85%</span>
-                </div>
-
-                 <!-- 9. Graphene Lattice (Image Dark) -->
-                <div class="bento-card card-dark" style="grid-column: span 1; grid-row: span 2; padding: 0; overflow: hidden; position: relative;">
-                    <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop" alt="Graphene Lattice" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
-                     <div class="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black/80 to-transparent w-full">
-                        <span class="text-primary text-xs font-bold uppercase tracking-widest block mb-1">Field Image</span>
-                        <h3 class="text-white font-bold">Graphene Lattice</h3>
-                     </div>
-                </div>
-
-                <!-- 10. Physics Olympiad (Dark) -->
-                <div class="bento-card card-dark flex-row-center" style="grid-column: span 2;">
-                     <div class="icon-box-yellow mr-4">
-                        <span class="material-symbols-outlined text-charcoal">emoji_events</span>
-                    </div>
-                     <div>
-                        <h3 class="text-white font-bold text-lg">Physics Olympiad</h3>
-                        <p class="text-gray-400 text-sm">National Silver Medalist</p>
+                        <h4 class="font-bold text-lg">Cleanroom Operator</h4>
+                        <p class="text-white/50 text-sm">ISO Class 5 Certification</p>
                     </div>
                 </div>
 
+                <!-- Visual Graphic Placeholder -->
+                <div class="md:col-span-2 md:row-span-2 bento-card bg-white border border-charcoal/5 rounded-xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Microscopic view of crystal lattice structures" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1y8LMJDDMZSMp50V7lDhnmtjEIVLqa1p5O3hef4LWXI-x2iwrLEO1QvXqR7ogii4V4LGVrQA8JwAJxCOn3VA6T-9UikPsssyL7T2M3IJ1ngYjZrzjvL1vH2YlvfneAE9BIYgtQ2eMTWnZdsYKKxnPsTd1CKGTzJAndwtTsCr_acLPX88YUtuGJkTna94YHiwErpE19rCar979c0_3k6U8_aqX4XaRdFR1L0F_3KSet7me0Eq04uilWl0JChb277eXIRlYmEra6QI');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <p class="text-xs font-bold uppercase tracking-widest text-primary mb-1">Field Image</p>
+                        <h4 class="text-lg font-bold">Graphene Lattice</h4>
+                    </div>
+                </div>
+
+                <!-- Core Skill: Quantum Mechanics (Yellow) -->
+                <div class="md:col-span-2 md:row-span-1 bento-card bg-primary p-6 rounded-xl flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold">Quantum Mech</h3>
+                        <p class="text-charcoal/70 text-sm">Theory & Simulation</p>
+                    </div>
+                    <div class="text-3xl font-black italic">85%</div>
+                </div>
+
+                <!-- Award: Physics Olympiad (Charcoal) -->
+                <div class="md:col-span-2 md:row-span-1 bento-card bg-charcoal p-6 rounded-xl flex items-center gap-5 text-white">
+                    <div class="size-14 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl">military_tech</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">Physics Olympiad</h4>
+                        <p class="text-white/50 text-sm">National Silver Medalist</p>
+                    </div>
+                </div>
             </div>
+
+            <!-- Footer / CTA -->
+            <footer class="mt-20 pt-8 border-t border-charcoal/10 flex flex-col md:flex-row items-center justify-between gap-6 text-charcoal/50 text-sm">
+                <div class="flex items-center gap-4">
+                    <a class="hover:text-primary transition-colors" href="#">Research Projects</a>
+                    <a class="hover:text-primary transition-colors" href="#">Academic History</a>
+                    <a class="hover:text-primary transition-colors" href="#">Contact</a>
+                </div>
+                <p>© 2024 Nanoscience Portfolio — Designed for precision.</p>
+            </footer>
+        </div>
+    </section>
+
+
+    <!-- ================= RESEARCH / ABOUT ================= -->
+    <section id="about" class="research-section">
+        <div class="container-narrow">
+            <span class="hero-supertitle text-primary mb-4 block">PUBLICATIONS & PROJECTS</span>
+            <h2 class="section-title text-soft-white mb-16">Selected <span class="italic text-dim">Research</span></h2>
+            
+            <div class="research-list">
+                <!-- Item 1 -->
+                <div class="research-item">
+                    <span class="year-label">2024</span>
+                    <div class="research-content">
+                        <h3 class="research-title">Antibiotic Resistance in Urban Water Systems</h3>
+                        <p class="research-desc">A comprehensive study on the prevalence of AMR bacteria in the Betwa River, employing DNA isolation and susceptibility testing.</p>
+                        <a href="#" class="btn-text">Read Abstract <span class="material-symbols-outlined">arrow_outward</span></a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="research-item">
+                    <span class="year-label">2023</span>
+                    <div class="research-content">
+                        <h3 class="research-title">Green Synthesis of Metal Nanoparticles</h3>
+                        <p class="research-desc">Utilizing plant extracts for the eco-friendly synthesis of Silver and Zinc Oxide nanoparticles, targeted for agricultural applications.</p>
+                        <a href="#" class="btn-text">Read Abstract <span class="material-symbols-outlined">arrow_outward</span></a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="research-item">
+                    <span class="year-label">2022</span>
+                    <div class="research-content">
+                        <h3 class="research-title">Perovskite Solar Cells Efficiency</h3>
+                        <p class="research-desc">Optimization of organic-inorganic hybrid perovskite layers to enhance stability and power conversion efficiency in solar cells.</p>
+                        <a href="#" class="btn-text">Read Abstract <span class="material-symbols-outlined">arrow_outward</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact-section">
+        <div class="contact-wrapper">
+            <h2 class="contact-title">Let's <span class="text-primary italic">Connect</span></h2>
+            <p class="contact-text">Open to research collaborations and opportunities in Nanoscience.</p>
+            
+            <a href="mailto:shivam947350@gmail.com" class="email-link">
+                shivam947350@gmail.com
+            </a>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shivam-singh-s7393" class="social-icon">LinkedIn</a>
+                <!-- <a href="#" class="social-icon">GitHub</a>
+                <a href="#" class="social-icon">ResearchGate</a> -->
+            </div>
+
+            <footer class="site-footer">
+                <p>&copy; 2026 Shivam Singh Patel. Designed with Precision.</p>
+            </footer>
         </div>
     </section>
 
